@@ -1,2 +1,2 @@
 # ShowCase-Python-
-All cool project are being showcase here in this repo.
+All cool Python projects are being showcased here in this repo.
