@@ -36,13 +36,6 @@ A beautiful, modern Tic Tac Toe game with natural aesthetic colors, glassmorphis
    ```
 5. To stop the server, press `Ctrl+C` in the terminal
 
-### Method 3: Using PowerShell (Quick Open)
-
-1. Open **PowerShell**
-2. Run this command:
-   ```powershell
-   Invoke-Item "d:\Coddy World\ShowCase Python\ShowCase-Python-\TIC TAC TOE\index.html"
-   ```
 
 ## 📁 Project Structure
 
