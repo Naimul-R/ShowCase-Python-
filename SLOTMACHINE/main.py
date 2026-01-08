@@ -1,7 +1,7 @@
 import random
 
 MAX_LINES = 3
-MAX_BET = 100
+MAX_BET = 10
 MIN_BET = 1
 
 ROWS = 3
@@ -13,6 +13,28 @@ symbol_count = {
     "C": 6,
     "D": 8
 }
+
+symbol_value = {
+    "A": 5,
+    "B": 4,
+    "C": 3,
+    "D": 2
+}
+
+def check_winners(columns, lines, bet, values):
+    winnings = 0 
+    winnings_lines = []
+    for line in range(lines):
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                break
+        else:
+            winnings += values[symbol] * bet
+            winnings_lines.append(line + 1)
+    return winnings, winnings_lines
+
 
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
@@ -81,11 +103,8 @@ def get_bet():
             print("Please enter a number.")
     return Amount 
 
-
-def main():
-    balance = deposite()
+def spin(balance):
     lines = get_number_of_lines()
-
     while True:
         bet = get_bet()
         total_bet = bet * lines
@@ -98,5 +117,21 @@ def main():
 
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
+    winnings, winnings_lines = check_winners(slots, lines, bet, symbol_value)
+    print(f"You Won ${winnings}.")
+    print(f"You won on lines:", * winnings_lines)
+    return winnings - total_bet
+
+
+def main():
+    balance = deposite()
+    while True:
+        print(f"Current balance is ${balance}.")
+        answer = input("Press enter to play (q to quit).")
+        if answer == "q":
+            break
+        balance += spin(balance)
+    print(f"You left with ${balance}")
+
 
 main()
