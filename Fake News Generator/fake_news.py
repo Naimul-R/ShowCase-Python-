@@ -1,7 +1,7 @@
 import random
 
 #Create Subject
-subject = [
+subjects = [
     "Ronaldo",
     "Messi",
     "Neymar",
@@ -11,7 +11,7 @@ subject = [
     "Premier League",
 ]
 
-action =[
+actions =[
     "wins the championship",
     "signs a new contract",
     "scores a hat-trick",
@@ -27,6 +27,22 @@ places_or_things =[
     "during the press conference",
     "in the upcoming season",
     "at the training ground",
-    "in the World Cup",
+    "in the Club World Cup",
     "in the Champions League"
 ]
+
+#Start the headline generation loops
+while True:
+    subject = random.choice(subjects)
+    action = random.choice(actions)
+    place_or_thing = random.choice(places_or_things)
+
+    headline = f"BREAKING NEWS: {subject} {action} {place_or_thing}"
+    print("\n" + headline)
+
+    user_input = input("\nDo you generate another headline? (yes/no)").strip().lower()
+    if user_input == "no":
+        break
+
+#Print Goodbye message 
+print("\nThank you for using the Fake News Generator. Goodbye!")
