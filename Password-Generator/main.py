@@ -20,6 +20,26 @@ def generate_password():
     #String concatenation 
     all_characters = lower + uppercase + special + digits
 
-    
+    required_character = []
+    if include_uppercase == "yes":
+        required_character.append(random.choice(uppercase))
+    if include_special == "yes":
+        required_character.append(random.choice(special))
+    if include_digits == "yes":
+        required_character.append(random.choice(digits))
 
-generate_password()
+    remaining_length = length - len(required_character)
+    password = required_character
+
+    for _ in range(remaining_length): #"_" is placeholder variable when you don't want to define something
+        character = random.choice(all_characters)
+        password.append(character)
+
+    random.shuffle(password)
+
+    str_password = "".join(password)
+    return str_password
+
+
+password = generate_password()
+print(password)
