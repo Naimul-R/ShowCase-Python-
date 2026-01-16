@@ -1,20 +1,33 @@
-def load_tasks():
-    pass
+import json #JavaScript Object Notation 
 
-def save_tasks():
-    pass
+#Storation Tasks in JSON file using Dictionary
+file_name = "todo_list.json"
+
+def load_tasks():
+    try:
+        with open(file_name, "r") as file:
+            return json.load(file)
+    except:
+        return {"tasks": []}
+
+def save_tasks(tasks):
+    try:
+        with open(file_name, "w") as file:
+            json.dump(tasks, file)
+    except:
+        print("Failed to save.")
 
 def view_tasks():
     pass
 
-def create_task():
-    pass
+def create_task(tasks):
+    description = input("Enter the task description: ").strip()
 
 def mark_task_complete():
     pass
 
 def main():
-    tasks = load_tasks
+    tasks = load_tasks()
 
     while True:
         print("\nTo-Do List Manager")
