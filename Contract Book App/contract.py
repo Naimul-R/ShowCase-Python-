@@ -27,7 +27,7 @@ while True:
         name = input("Enter contact name to view = ")
         if name in contacts:
             contact = contacts[name]
-            print(f"Name: {name}, Age:{age}, Mobile Number: {mobile}")
+            print(f"Name: {name}, Age:{age}, Mobile Number: {mobile}, Email: {email}")
         else:
             print("Conract not found!")
 
@@ -40,3 +40,31 @@ while True:
             contacts[name] = {'age': int(age), 'email': email, 'mobile': mobile}
         else:
             print("Contact not found!")
+
+    elif choice == 4:
+        name = input("Enter contact name to delete = ")
+        if name in contacts:
+            del contacts[name]
+            print(f"Enter name {name} has been deleted successfully!")
+        else:
+            print("Contact not found!")
+
+    elif choice == 5:
+        search_name = input("Enter contact name to search = ")
+        found = False
+        for name, contact in contacts.items():
+            if search_name.lower() in name.lower():
+                print(f"Found - Name {name}, Age:{age}, Mobile Number:{mobile}, Email:{email}")
+                found = True
+        if not found:
+            print("No contact found with that name!")
+
+    elif choice == 6:
+        print(f"Total contacts in your book {len(contacts)}")
+
+    elif choice == 7:
+        print("Good Bye...closing the program!")
+        break
+
+    else:
+        print("Invalid input!")
