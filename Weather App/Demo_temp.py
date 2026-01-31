@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import requests
 
 win = Tk()
 win.title("Worl's View")
@@ -40,18 +41,33 @@ done_button.place(y=165, height=35, width=85, x=170)
 w_label = Label(win, text="Weather Climate",
                    font=("Time New Roman", 14))
 w_label.place(x=20, y=220, height=45, width=170)
+w_label1 = Label(win, text="",
+                   font=("Time New Roman", 14))
+w_label1.place(x=200, y=220, height=45, width=170)
+
 
 wb_label = Label(win, text="Weather Description",
                    font=("Time New Roman", 13))
 wb_label.place(x=20, y=280, height=45, width=170)
+wb_label1 = Label(win, text="",
+                   font=("Time New Roman", 13))
+wb_label1.place(x=200, y=280, height=45, width=170)
+
 
 temp_label = Label(win, text="Temperature",
                    font=("Time New Roman", 13))
 temp_label.place(x=20, y=340, height=45, width=170)
+temp_label1 = Label(win, text="",
+                   font=("Time New Roman", 13))
+temp_label1.place(x=200, y=340, height=45, width=170)
+
 
 per_label = Label(win, text="Pressure",
                    font=("Time New Roman", 13))
 per_label.place(x=20, y=400, height=45, width=170)
+per_label1 = Label(win, text="",
+                   font=("Time New Roman", 13))
+per_label1.place(x=200, y=400, height=45, width=170)
 
 
 
