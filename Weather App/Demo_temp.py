@@ -2,6 +2,14 @@ from tkinter import *
 from tkinter import ttk
 import requests
 
+def get_data():
+    city = city_name.get()
+    data = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=e1ad8294ef595f7c4232aea25ed1baac").json()
+    w_label1.config(text=data["weather"][0]["main"])
+    wb_label1.config(text=data["weather"][0]["description"])
+    temp_label1.config(text=str(data["main"]["temp"]-273.15))
+    per_label1.config(text=data["main"]["pressure"])
+
 win = Tk()
 win.title("Worl's View")
 win.config(bg = "lightblue")
@@ -28,14 +36,11 @@ list_name = [
     "Jessore",
     "Bogra"
 ]
-com = ttk.Combobox(win, text="World's view Weather App", values= list_name,
-                   font=("Time New Roman", 14, 'bold'))
-com.place(x=20, y=110, height=40, width=400)
 
-#Create button to get weather
-done_button = Button(win, text="Done",
-                   font=("Time New Roman", 14, 'bold'))
-done_button.place(y=165, height=35, width=85, x=170)
+city_name = StringVar()
+com = ttk.Combobox(win, text="World's view Weather App", values= list_name,
+                   font=("Time New Roman", 14, 'bold'), textvariable = city_name)
+com.place(x=20, y=110, height=40, width=400)
 
 
 w_label = Label(win, text="Weather Climate",
@@ -68,6 +73,11 @@ per_label.place(x=20, y=400, height=45, width=170)
 per_label1 = Label(win, text="",
                    font=("Time New Roman", 13))
 per_label1.place(x=200, y=400, height=45, width=170)
+
+#Create button to get weather
+done_button = Button(win, text="Done",
+                   font=("Time New Roman", 14, 'bold'), command=get_data) #Using command to call get data funtion.
+done_button.place(y=165, height=35, width=85, x=170)
 
 
 
