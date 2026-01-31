@@ -7,7 +7,7 @@ def get_data():
     data = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid={API key}")
     w_label1.config(text=data["weather"][0]["main"])
     wb_label1.config(text=data["weather"][0]["description"])
-    temp_label1.config(text=str(data["main"]["temp"]-273.15))
+    temp_label1.config(text=str(int(data["main"]["temp"]-273.15)))
     per_label1.config(text=data["main"]["pressure"])
 
 win = Tk()
