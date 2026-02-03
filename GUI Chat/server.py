@@ -17,7 +17,18 @@ def broadcast(message):
         client.send(message)
 
 def handle(client):
-    pass
+    while True:
+        try:
+            message = client.recv(1024)
+            print(f"{nicknames[clients.index(client)]} says {message}")
+            broadcast(message)
+        except:
+            index = clients.index(client)
+            clients.remove(client)
+            client.close()
+            nickname = nicknames[index]
+            nicknames.remove(nickname)
+            break
 
 def receive():
     while True:
@@ -36,3 +47,6 @@ def receive():
 
         thread = threading.Thread(target=handle, args=(client,))
         thread.start()
+
+print("Server is running...")
+receive()
