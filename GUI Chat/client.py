@@ -10,9 +10,9 @@ PORT = 9090
 class Client:
 
     def __init__(self, host, port):
-
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((host, port))
+        self.sock = sock
 
         msg = tkinter.Tk()
         msg.withdraw()
@@ -32,7 +32,7 @@ class Client:
         self.win = tkinter.Tk()
         self.win.configure(bg = "lightgray")
 
-        self.chat_label = tkinter.label(self.win, text="Chat:", bg="lightgray")
+        self.chat_label = tkinter.Label(self.win, text="Chat:", bg="lightgray")
         self.chat_label.config(font=("Arial", 12))
         self.chat_label.pack(padx=20, pady=5)
 
@@ -40,7 +40,7 @@ class Client:
         self.text_area.pack(padx=20, pady=5)
         self.text_area.config(state='disabled')
 
-        self.msg_label = tkinter.label(self.win, text="Message:", bg="lightgray")
+        self.msg_label = tkinter.Label(self.win, text="Message:", bg="lightgray")
         self.msg_label.config(font=("Arial", 12))
         self.msg_label.pack(padx=20, pady=5)
 
@@ -74,3 +74,18 @@ class Client:
                 message = self.sock.recv(1024)
                 if message == 'NICK':
                     self.sock.send(self.nickname.encode('utf-8'))
+                else: 
+                    if self.gui_done:
+                        self.text_area.config(state='normal')
+                        self.text_area.insert('end', message)
+                        self.text_area.yview('end')
+                        self.text_area.config(state='disabled')
+
+            except ConnectionAbortedError:
+                break
+            except:
+                print("Error")
+                self.sock.close()
+                break
+
+client = Client(HOST, PORT)
