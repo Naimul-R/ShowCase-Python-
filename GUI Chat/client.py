@@ -58,10 +58,19 @@ class Client:
         self.win.mainloop()
 
     def write(self):
-        pass
+        message = f"{self.nickname}: {self.input_area.get('1.0', 'end')}"
+        self.sock.send(message.encode('utf-8'))
+        self.input_area.delete('1.0', 'end')
 
     def stop(self):
-        pass
+        self.running = False
+        self.win.distroy()
+        self.sock.close()
+        self.exit(0)
 
     def receive(self):
-        pass
+        while self.running:
+            try:
+                message = self.sock.recv(1024)
+                if message == 'NICK':
+                    self.sock.send(self.nickname.encode('utf-8'))
