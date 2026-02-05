@@ -1,5 +1,8 @@
 from tkinter import *
 from tkinter import ttk
+from googletrans import Translator, LANGUAGES
+
+
 
 root = Tk()
 root.title("Translator")
@@ -17,6 +20,26 @@ lab_txt.place(x=110, y=100, height=20, width=260)
 
 src_txt = Text(frame, font=('Time New Roman', 15, 'bold'), wrap=WORD)
 src_txt.place(x=10, y=130, height=150, width=480)
+
+list_text = [1, 2, 3]
+
+com_src = ttk.Combobox(frame, value= list_text)
+com_src.place(x=10, y=300, height=40, width=150)
+com_src.set("English")
+
+button_change = Button(frame, text= "Transtale", relief=RAISED)
+button_change.place(x=170, y=300, height=40, width=150)
+
+com_dest = ttk.Combobox(frame, value= list_text)
+com_dest.place(x=330, y=300, height=40, width=150)
+com_dest.set("English")
+
+
+lab_txt = Label(root, text='Destination Text', font=('Time New Roman', 15, 'bold'), fg='Black', bg='skyblue')
+lab_txt.place(x=110, y=360, height=20, width=260)
+
+dest_txt = Text(frame, font=('Time New Roman', 15, 'bold'), wrap=WORD)
+dest_txt.place(x=10, y=400, height=150, width=480)
 
 
 root.mainloop()
