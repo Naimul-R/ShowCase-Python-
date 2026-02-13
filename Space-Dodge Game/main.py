@@ -6,7 +6,7 @@ WIDTH, HEIGHT = 900, 650
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Dodge")
 
-BG = pygame.image.load("Img/")
+BG = pygame.transform.scale(pygame.image.load("bg.jpeg"), (WIDTH, HEIGHT))
 
 def draw():
     WIN.blit(BG,(0, 0))
