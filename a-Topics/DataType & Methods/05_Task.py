@@ -77,3 +77,22 @@ for student, marks in student_record.items():
 print("\n==============================")
 print("FINAL REPORT")
 print("==============================")
+
+print("\nSubject:",subject)
+
+print("\nStudent Records:")
+for student, marks in student_record.items():
+    print(f"{student} --> {marks}")
+
+print("\nAverage Marks:")
+for student, avg in averages.items():
+    print(f"{student}: {avg:.2f}")
+
+print("\nTop Performer:")
+print(top_student, f"with average {highest_average:.2f}")
+
+print("High achivers (Avg > 80):")
+for student in high_achivers:
+    print("-", student)
+
+print("All Unique marks:", all_marks)
