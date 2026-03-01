@@ -31,3 +31,23 @@ else:
 # ==================================================
 # HOTEL SYSTEM STARTS
 # ==================================================
+# Fixed room type
+room_type = ("Single", "Double", "Suite", "Deluxe")
+
+# Pricing Congfiguration Dictonary 
+room_price = {
+    "single": 1000,
+    "Double": 1500,
+    "Suite": 2000,
+    "Deluex": 4550,
+}
+
+SERVICE_CAST = 20
+
+# Data Storage
+guest = set()
+booking = {}
+
+# ==================================================
+# MAIN MENU LOOP
+# ==================================================
