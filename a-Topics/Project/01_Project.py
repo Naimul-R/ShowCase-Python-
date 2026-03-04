@@ -35,11 +35,11 @@ else:
 room_type = ("Single", "Double", "Suite", "Deluxe")
 
 # Pricing Congfiguration Dictonary 
-room_price = {
+room_prices = {
     "single": 1000,
-    "Double": 1500,
-    "Suite": 2000,
-    "Deluex": 4550,
+    "double": 1500,
+    "suite": 2000,
+    "deluex": 4550,
 }
 
 SERVICE_COST = 20
@@ -112,4 +112,67 @@ while True:
     # ---------------------------------
     # Option 4 — Add Extra Services
     # ---------------------------------
+    elif choice == "4":
+        name = input("Enter the guest name: ").strip().title()
 
+        if name not in bookings:
+            print("No bookings found for this guest.")
+        else:
+            service = input("Enter service (Breakfast/WiFi/Spa/Airport Pickup): ").strip().title()
+            bookings[name]["services"].append(service)
+            print("Service added successfully!")
+
+    # ---------------------------------
+    # Option 5 — View Booking Report
+    # ---------------------------------
+    elif choice == "5":
+        if not bookings:
+            print("No bookings available.")
+        else:
+            print("\n--------- BOOKING REPORT ---------")
+
+            highest_payment = 0
+            top_guest = None
+
+            for guest, info in bookings.items():
+                room = info["room_type"]
+                nights = info["nights"]
+                services = info["services"]
+
+                room_cost = room_prices[room] * nights
+                service_cost = len[services] * SERVICE_COST
+                total_cost = room_cost + service_cost
+
+                print(f"\nGuest: {guest}")
+                print("Room: ", room)
+                print("Nights: ", nights)
+                print("Services: ", services)
+                print("Total cost: ", total_cost)
+
+                if total_cost > highest_payment:
+                    highest_payment = total_cost
+                    top_guest = guest
+
+            print("\nHighest paying guest: ", top_guest)
+            print("Amount: ", highest_payment)
+
+    # ---------------------------------
+    # Option 6 — Cancel Booking
+    # ---------------------------------
+    elif choice == "6":
+        name = input("Enter guest name to cancel bookings: ").strip().title()
+
+        if name in bookings:
+            bookings.pop(name)
+            print("Bookings cancelled successfully!")
+        else:
+            print("Booking not found!")
+
+    # ---------------------------------
+    # Option 7 — Exit
+    # ---------------------------------
+    elif choice == "7":
+        print("Existing system. GoodBye!")
+        break
+    else:
+        print("Invalid chocie. Select (1-7).")
