@@ -10,3 +10,5 @@
    - problem: create a function that return both area and circumference of a circle given it's result.
 5. Default parameter value
    - While a function that greets a user. If no name is provided, it should greet with default name.
+6. Lambda function
+   - Create a lambda function to compute the cube of a number.
