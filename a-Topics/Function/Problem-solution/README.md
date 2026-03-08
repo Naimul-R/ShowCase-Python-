@@ -16,3 +16,5 @@
    - Write a function that takes variable number of arguments and return their sum.
 8. Function with \*\*kwargs
    - Create a function that accept any number of keywords arguments and prints them in a format key:value.
+9. Generator function with yield
+   - Write a generator function that yields even numbers up to a specified limit
