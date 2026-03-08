@@ -8,3 +8,5 @@
    - problem: Write a function multiply that multiplies two number, but can also accept and multiply string.
 4. Function returing multiple values
    - problem: create a function that return both area and circumference of a circle given it's result.
+5. Default parameter value
+   - While a function that greets a user. If no name is provided, it should greet with default name.
