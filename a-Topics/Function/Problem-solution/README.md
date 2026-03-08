@@ -18,3 +18,6 @@
    - Create a function that accept any number of keywords arguments and prints them in a format key:value.
 9. Generator function with yield
    - Write a generator function that yields even numbers up to a specified limit
+10. Recursive function
+
+- Create a recursive function to calculate the factorial of a number
