@@ -12,3 +12,5 @@
    - While a function that greets a user. If no name is provided, it should greet with default name.
 6. Lambda function
    - Create a lambda function to compute the cube of a number.
+7. Function with \*args
+   - Write a function that takes variable number of arguments and return their sum.
