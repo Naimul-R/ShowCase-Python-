@@ -11,3 +11,11 @@ def add_player():
         })
 
     return players
+
+def showleaderboard(players):
+    print("\n--- Sports Leaderboard ---")
+
+    for i, player in enumerate(players, 1):
+        print(f"{i}. {player['name']:<10} - Score: {player['score']}")
+
+    print("--------------------------")
