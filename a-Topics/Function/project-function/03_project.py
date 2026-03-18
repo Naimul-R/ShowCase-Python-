@@ -47,5 +47,50 @@ def search_song(songs, keyword):
             result.append(song)
     return result
 
+def sort_by_duration(songs):
+    sorted_songs = sorted(songs, key=lambda s: s["duration"], reverse=True)
+    return sorted_songs
 
-        
+def full_playlist_report():
+    print("\n============================================")
+    print("      🎵  MUSIC PLAYLIST MANAGER  🎵      ")
+    print("============================================")
+
+    # Step 1 — collect songs
+    songs = add_song()
+
+    # Step 2 — show playlist
+    show_playlist(songs)
+    
+    # Step 3 — total duration
+    total = get_total_duration(songs)
+    print(f"\n  ⏱  Total Duration  : {total} mins")
+
+    # Step 4 — longest song
+    longest = longest_song(songs)
+    print(f"  🎵 Longest Song    : {longest['title']} - Artist: {longest['artist']} - Duration: {longest['duration']} mins")
+
+    # Step 5 — sorted playlist
+    sorted_songs = sort_by_duration(songs)
+    print("\n--- 🔃 Sorted Playlist (Longest First) ---")
+
+    for i, song in enumerate(sorted_songs, 1):
+        print(f"  {i}. {song['title']:<20} - Artist: {song['artist']:<15} - Duration: {song['duration']} mins")
+    print("------------------------------------------")
+
+    # Step 6 — search song
+    keyword = input("\n  Search a song: ")
+    results = search_song(songs, keyword)
+
+    if results:
+        print(f'\n  Results for "{keyword}":')
+        for i, song in enumerate(results, 1):
+            print(f"  {i}. {song['title']} - Artist: {song['artist']} - Duration: {song['duration']} mins")
+    else:
+        print("  No song found! 🚫")
+
+    print("\n============================================")
+
+
+# --- Run the program ---
+full_playlist_report()
