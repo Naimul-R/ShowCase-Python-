@@ -8,3 +8,7 @@
   Problem 03 : Create a ElectricCar class that inherits from the class and has an additional attribute bettary_size.
 - Encapsulation
   Problem 04 : Modify the car class to encapsulate the brand attribute, making it private, and provide a getter method for it.
+- Polymorphism
+  Problem 05 : Demonstrate pholymorphism by defining a method fuel_type in both car and electricCar classes, but with different behaviour.
+- Class Variable
+  Problem 06 : Add a class variable to Car that keeps track of the number of cars created.
