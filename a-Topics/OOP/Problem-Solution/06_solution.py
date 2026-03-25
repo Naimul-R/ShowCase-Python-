@@ -1,4 +1,5 @@
-# Polymorphism
+# Class Variables
+
 class Car:
     # __init__ is `Constractor Mehtod`.
     def __init__(self, brand, model):
