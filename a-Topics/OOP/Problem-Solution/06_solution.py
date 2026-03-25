@@ -1,11 +1,13 @@
 # Class Variables
 
 class Car:
+    total_car = 0
     # __init__ is `Constractor Mehtod`.
     def __init__(self, brand, model):
         # (__brand) this methods make this attribute privet
         self.__brand = brand
         self.model = model
+        Car.total_car += 1
 
     # Making getter method & Brand attribute privet
     def get_brand(self):
@@ -23,15 +25,17 @@ class ElectricCar(Car):
         # super() function is used inside a class to call methods or access properties from its parent (superclass)
         super().__init__(brand, model)
         self.bettary_size = bettary_size
-    
+
     def fuel_type(self):
         return "Electric charge"
 
-my_tesla = ElectricCar("Tesla", "Model S", "85KWH")
-print(my_tesla.fuel_type())
+# my_tesla = ElectricCar("Tesla", "Model S", "85KWH")
+# print(my_tesla.fuel_type())
 
-safari = Car("Tata", "Safari")
-print(safari.fuel_type())
+Car("Tata", "Safari")
+Car("Tata", "Seadans")
+
+print(Car.total_car)
 
 # my_car = Car("BMW", "X7 1")
 # print(my_car.brand)
