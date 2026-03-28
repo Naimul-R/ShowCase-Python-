@@ -12,3 +12,5 @@
   Problem 05 : Demonstrate pholymorphism by defining a method fuel_type in both car and electricCar classes, but with different behaviour.
 - Class Variable
   Problem 06 : Add a class variable to Car that keeps track of the number of cars created.
+- Static method
+  Problem 07 : Add a static method to the car class that returns a general description of a car
