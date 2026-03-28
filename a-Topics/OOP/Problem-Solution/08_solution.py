@@ -1,4 +1,4 @@
-# staticmethod decorator
+# Property decorator 
 
 class Car:
     total_car = 0
@@ -6,7 +6,7 @@ class Car:
     def __init__(self, brand, model):
         # (__brand) this methods make this attribute privet
         self.__brand = brand
-        self.model = model
+        self.__model = model
         Car.total_car += 1
 
     # Making getter method & Brand attribute privet
@@ -14,7 +14,7 @@ class Car:
         return self.__brand + " !"
 
     def full_name(self):
-        return f"{self.__brand} {self.model}"
+        return f"{self.__brand} {self.__model}"
     
     def fuel_type(self):
         return "Petrol or Diesel"
@@ -22,6 +22,10 @@ class Car:
     @staticmethod
     def general_description():
         return "Cars are means to transport"
+    
+    @property
+    def model(self):
+        return self.__model
 
 # Create an Inheritence class 
 class ElectricCar(Car):
@@ -37,9 +41,11 @@ class ElectricCar(Car):
 # print(my_tesla.fuel_type())
 
 my_car = Car("Tata", "Safari")
+# my_car.model = "city"
 Car("Tata", "Seadans")
 
-print(Car.general_description())
+# print(Car.general_description())
+print(my_car.model)
 
 # my_car = Car("BMW", "X7 1")
 # print(my_car.brand)

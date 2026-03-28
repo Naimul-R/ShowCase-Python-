@@ -14,3 +14,5 @@
   Problem 06 : Add a class variable to Car that keeps track of the number of cars created.
 - Static method
   Problem 07 : Add a static method to the car class that returns a general description of a car
+- Property method
+  Problem 08 : Use a property decoretor in car class to make the model attribute read only
