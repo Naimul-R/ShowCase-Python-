@@ -16,3 +16,5 @@
   Problem 07 : Add a static method to the car class that returns a general description of a car
 - Property method
   Problem 08 : Use a property decoretor in car class to make the model attribute read only
+- Class inheritance and isinstance() function
+  Problem 09 : Demonstrate the use of isinstance() to check if my_tesla is an instance of Car and electric car.
