@@ -10,4 +10,3 @@ class BankAccount:
     
 acc = BankAccount("Account Balance is = ", 150000)
 print(acc.text, acc.balance)
-
