@@ -7,7 +7,16 @@ class Password_manager:
 
     def save(self, site, password, master):
         if master == self.__master:
-            self.password[site] = password
+            self.__password[site] = password
             print(f"Save password for {site}")
         else:
             print("Wrong master password!")
+
+    def get(self, site, master):
+        if master == self.__master:
+            return self.__password.get(site, "not found.")
+        return "access denied!"
+
+pm = Password_manager()
+pm.save("gmail.com", "iamEncapsulation", "secret123")
+print(pm.get("gmail.com", "secret123"))
