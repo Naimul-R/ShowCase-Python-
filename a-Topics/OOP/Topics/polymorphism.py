@@ -21,3 +21,16 @@ payment.pay(200)
 
 payment = Crypto()
 payment.pay(500)
+
+print("===== Another Example =====")
+class library:
+    def BookName(self):
+        print(f"Think and Grow RIch.")
+    
+class BookSelf(library):
+    def BookName(self):
+        super().BookName()
+        print('Mindset.')
+
+obj = BookSelf()
+obj.BookName()
