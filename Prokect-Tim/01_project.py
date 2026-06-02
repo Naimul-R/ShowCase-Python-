@@ -57,3 +57,34 @@ if should_play == "y" or should_play == "yes":
                 print("You stood there confused and it got dark. Game over!")
         else:
             print("Not a valid choice. You slipped into the river. Game over!")
+
+    # Forward Path ------>
+    elif direction == "forward":
+        print("You walk forward and reach a mysterious castle!\n")
+        enter = input("Do you knock on the door or sneak around the back? (knock/sneak): ").lower()
+
+        if enter == "knock":
+            print("A friendly wizard open the door\n")
+            quest = input("He says: 'Solve my puzzle and I will reward you. 2 + 2 x 2 = ?' (answer): ")
+            if quest == "6":
+                print(f"Correct! The wizard gives you a chest full of gold, {name}! YOU WIN!")
+            else:
+                print("Wrong! The wizard turns you into a frog. Game over!")
+
+        if enter == "sneak":
+            print("You sneak around the back and find a locked door.\n")
+            key = input("There is a key under the mat. Do you use it? (yes/no): ").lower()
+            if key == "yes":
+                print(f"You unlock the door and find the royal treasure room, {name}! YOU WIN!")
+            else:
+                print("You walked away and never found the treasure. Game over!")
+
+        else:
+            print("You stood frozen and the castle gates crushed you. Game over!")
+
+    # Invalid direction ------>
+    else:
+        print("Not a valid direction. You wandered off and got lost. Game over!")
+
+else:
+    print("We are NOT playing...")
