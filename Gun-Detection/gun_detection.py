@@ -3,8 +3,8 @@ import cv2
 import imutils 
 import datetime
 
-
-gun_cascade = cv2.CascadeClassifier('cascade.xml')
+gun_cascade = cv2.CascadeClassifier(r'C:\Users\anony\OneDrive\Documents\GitHub\ShowCase-Python-\Gun-Detection\cascade.xml')
+# gun_cascade = cv2.CascadeClassifier('cascade.xml')
 camera = cv2.VideoCapture(0)
 
 firstFrame = None
@@ -31,3 +31,21 @@ while True:
             
             roi_gray = gray[y : y + h, x : x + w]
             roi_color = frame[y : y + h, x : x + w]
+
+    if firstFrame is None:
+        firstFrame = gray
+        continue
+    
+    cv2.imshow("Security Feed", frame)
+    key = cv2.waitKey(1) & 0xFF
+
+    if key == ord('q'):
+        break
+
+if gun_exist:
+    print("Gun detected.")
+else:
+    print("Gun is not found!")
+
+camera.release()
+cv2.destroyAllWindows()
