@@ -1,0 +1,74 @@
+{
+    "questions": [
+        {
+            "question": " What is the Dunning-Kruger Effect?",
+            "options": [
+                "Memory",
+                "Overconfidence",
+                "Conformity",
+                "Stress"
+            ],
+            "answer": "Overconfidence"
+        },
+        {
+            "question": "Who is associated with classical conditioning?",
+            "options": [
+                "Skinner",
+                "Freud",
+                "Pavlov",
+                "Piaget"
+            ],
+            "answer": "Pavlov"
+        },
+        {
+            "question": "What is cognitive dissonance?",
+            "options": [
+                "Multitasking",
+                "Discomfort",
+                "Forgetting",
+                "Avoidance"
+            ],
+            "answer": "Discomfort"
+        },
+        {
+            "question": "In Maslow's Hierarchy, which need comes first?",
+            "options": [
+                "Esteem",
+                "Belonging",
+                "Physiological",
+                "Actualization"
+            ],
+            "answer": "Physiological"
+        },
+        {
+            "question": "What is the bystander effect?",
+            "options": [
+                "Helping",
+                "Inaction",
+                "Trust",
+                "Imitation"
+            ],
+            "answer": "Inaction"
+        },
+        {
+            "question": "What is confirmation bias?",
+            "options": [
+                "Selectivity",
+                "Empathy",
+                "Curiosity",
+                "Denial"
+            ],
+            "answer": "Selectivity"
+        },
+        {
+            "question": " What does Stockholm Syndrome describe?",
+            "options": [
+                "Fear",
+                "Attachment",
+                "Aggression",
+                "Isolation"
+            ],
+            "answer": "Attachment"
+        }
+    ]
+}
