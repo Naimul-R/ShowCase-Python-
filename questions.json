@@ -69,6 +69,26 @@
                 "Isolation"
             ],
             "answer": "Attachment"
+        },
+        {
+            "question": "Which empire built the Colosseum?",
+            "options": [
+                "Greek",
+                "Roman",
+                "Persian",
+                " Egyptian"
+            ],
+            "answer": "Roman"
+        },
+        {
+            "question": "Who led the Soviet Union during World War II?",
+            "options": [
+                "Lenin",
+                "Trotsky",
+                "Stalin",
+                "Khrushchev"
+            ],
+            "answer": "Lenin"
         }
     ]
 }
