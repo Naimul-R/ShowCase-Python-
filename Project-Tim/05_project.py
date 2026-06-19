@@ -1,5 +1,6 @@
 import random
 import json
+import time
 
 def load_question():
     with open("questions.json", "r") as f:
@@ -19,8 +20,30 @@ def ask_question(question):
     for i, option in enumerate(question["options"]):
         print(str(i + 1) + ".", option)
     
-    numbers = int(input("Select the correct number: "))
+    number = int(input("Select the correct number: "))
+    if number < 1 or number > len(question["options"]):
+        print("Invalid choice, defaulting to wrong answer!!")
+        return False
+    
+    correct = question["options"][number - 1] == question["answer"]
+    return correct
 
 question = load_question()
-random_questions = get_random_questions(question, 2)
-print(random_questions)
+total_question = int(input("Enter the number of questions: "))
+random_questions = get_random_questions(question, total_question)
+correct = 0
+start_time = time.time()
+
+
+for question in random_questions:
+    is_correct = ask_question(question)
+    if is_correct: 
+        correct += 1
+    print("---------------")
+    
+completed_time = time.time() - start_time
+print("Summary")
+print("Total questions: ", total_question)
+print("Correct answer is: ", correct)
+print("Score: ", str(round((correct / total_question) * 100, 2)) + "%")
+print("Time: ", round(completed_time, 2), "seconds")
