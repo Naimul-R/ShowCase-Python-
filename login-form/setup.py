@@ -2,7 +2,15 @@ from tkinter import *
 from tkinter import messagebox
 
 def login():
-    pass
+    username=entry1.get()
+    password=entry2.get()
+    
+    if (username=="" and password==""):
+        messagebox.showinfo("","Blank now allowed")
+    elif (username=="admin" and password=="password123"):
+        messagebox.showinfo("","Login success!")
+    else:
+        messagebox.showinfo("","Incorrect username and password")
 
 root=Tk()
 root.title("Login")
