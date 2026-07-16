@@ -1,1 +1,15 @@
-from flask import Flask, render_template
+import feedparser
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+RSS_FEEDS = {
+    'Yahoo Finance': 'https://finance.yahoo.com/news/rssindex',
+    'Hacker News': 'https://news.ycombinator.com/rss',
+    'Wall Street Journal': 'https://feeds.a.dj.com/rss/RSSMarketsMain.xml',
+    'CNBC': 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069'
+}
+
+@app.route('/')
+def index():
+    articles = []
