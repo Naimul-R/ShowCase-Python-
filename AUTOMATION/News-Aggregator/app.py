@@ -28,3 +28,21 @@ def index():
     paginated_articles = articles[start:end]
     
     return render_template('index.html', articles=paginated_articles, page=page, total_page=total_articles // per_page+1)
+
+@app.route('/search')
+def search():
+    query = request.args.get('q')
+    
+    articles = []
+    for source, feed in RSS_FEEDS.items():
+        parsed_feed = feedparser.parse(feed)
+        entries = [(source, entry) for entry in parsed_feed.entries]
+        articles.extend(entries)
+        
+    result = [article for article in articles if query.lower() in article[1].title.lower()]
+    
+    return render_template('search_results.html', articles=result, query=query)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
