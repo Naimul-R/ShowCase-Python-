@@ -13,3 +13,18 @@ RSS_FEEDS = {
 @app.route('/')
 def index():
     articles = []
+    for source, feed in RSS_FEEDS.items():
+        parsed_feed = feedparser.parse(feed)
+        entries = [(source, entry) for entry in parsed_feed.entries]
+        articles.extend(entries)
+        
+    articles = sorted(articles, key=lambda x: x[1].published_parsed, reverse=True)
+    
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
+    total_articles = len(articles)
+    start = (page - 1) * per_page
+    end = start + per_page
+    paginated_articles = articles[start:end]
+    
+    return render_template('index.html', articles=paginated_articles, page=page, total_page=total_articles // per_page+1)
