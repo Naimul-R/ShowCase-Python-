@@ -33,6 +33,14 @@ if len(sys.argv) == 2:
             print("Data copied to clipboard.")
         else:
             print("Key does not exits.")
+    elif command == "delete":
+        key = input("Enter a key: ")
+        if key in data:
+            del data[key]
+            save_data(SAVED_DATA, data)
+            print("Data Deleted.")
+        else:
+            print("Key does not exits!")
     elif command == "list":
         print(data)
     else:
