@@ -25,10 +25,16 @@ if len(sys.argv) == 2:
         key = input("Enter a key: ")
         data[key] = clipboard.paste()
         save_data(SAVED_DATA, data)
+        print("Data Saved")
     elif command == "load":
-        print("Load")
+        key = input("Enter a key: ")
+        if key in data:
+            clipboard.copy(data[key])
+            print("Data copied to clipboard.")
+        else:
+            print("Key does not exits.")
     elif command == "list":
-        print("List")
+        print(data)
     else:
         print("Unknown Command!")
 else:
